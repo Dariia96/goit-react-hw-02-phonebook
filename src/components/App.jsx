@@ -3,7 +3,7 @@ import Phonebook from './Phonebook';
 import { nanoid } from 'nanoid';
 import Contacts from './Contacts';
 import Filter from './Filter';
-import css from './Phonebook.module.css'
+
 
 class App extends Component  {
   state = {
@@ -22,7 +22,7 @@ class App extends Component  {
 			...data,
 		}
     
-    this.state.contacts.map((contact) => {
+    this.state.contacts.forEach((contact) => {
       console.log(contact)
       if (contact.name === newUser.name || contact.number === newUser.number) {
        alert(`${contact.name} is already in your contacts`)
@@ -43,7 +43,7 @@ class App extends Component  {
       [name]: value,
     })
     
-    {
+    
       /*const newContacts = this.state.contacts.filter((contact) => contact.name !== value);
       console.log(newContacts)
       this.setState(() => ({
@@ -61,7 +61,7 @@ class App extends Component  {
         
       })
       console.log(newContacts)
-    }
+    
     if (value)
     {
       this.setState(() => (
@@ -73,7 +73,7 @@ class App extends Component  {
  
      deleteContact  = ({ target: { id } }) => {
        
-        this.state.contacts.map((contact) => {
+        this.state.contacts.forEach((contact) => {
           if (contact.name === id) {
             this.setState({contacts: this.state.contacts.filter(item => item !== contact)})
      }
