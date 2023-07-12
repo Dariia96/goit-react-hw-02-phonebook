@@ -1,0 +1,35 @@
+.filterLabel{
+    font-weight: 600;
+    font-size: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.filterWraper{
+    padding-left: 30px;
+}
+.contacts{
+display: flex;
+flex-direction: column;
+gap:10px
+}
+
+.contactItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+}
+.formLabel{
+    font-weight: 600;
+    font-size: 600;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btn{
+    margin-top: 20px
+}
+.formWraper{
+    padding-left: 30px;
+}
