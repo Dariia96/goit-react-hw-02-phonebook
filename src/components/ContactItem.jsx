@@ -5,7 +5,7 @@ import css from './Phonebook.module.css'
 const ContactItem = ({ name, number, deleteContact }) => {
     return <li className={css.contactItem}>
         <span>{name} : {number}</span>
-        <button className={css.deleteButton}type='button' id={name} onClick={ deleteContact}>Delete</button>
+        <button className={css.deleteButton}type='button' id={name} onClick={deleteContact}>Delete</button>
 </li>
 
 };

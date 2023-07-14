@@ -14,21 +14,18 @@ class Phonebook extends Component {
 		})
     }
     handleSubmit = (e) => {
-		e.preventDefault()
+        e.preventDefault()
 		const data = {
 			...this.state,
 		}
-		/*delete data.check*/
+		
 
 		this.props.createUser(data)
-		// this.setState({
-		// 	email: '',
-		// 	password: '',
-		// 	check: false,
-		// 	select: 'male',
-		// 	radio: 'male',
-		// })
-        e.target.reset();
+		this.setState({
+		name: '',
+		number: '',
+	    })
+       
 	}
     render() {
         const { name, number} = this.state
@@ -67,6 +64,7 @@ class Phonebook extends Component {
                     />
 				</div>
                 <button
+                    type ='submit'
                     className={css.btn}
 					disabled={!name || !number}
 				>

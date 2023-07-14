@@ -23,53 +23,35 @@ class App extends Component  {
 		}
     
     this.state.contacts.forEach((contact) => {
-      console.log(contact)
-      if (contact.name === newUser.name || contact.number === newUser.number) {
-       alert(`${contact.name} is already in your contacts`)
-     }
+      if( contact.name === newUser.name && contact.number === newUser.number)
+      alert(`${contact.name} is already in your contacts`)
     })
-    this.setState((prevState) => ({
+
+    this.setState({contacts: this.state.contacts.filter(contact =>  contact.name !== newUser.name && contact.number !== newUser.number)})
+    
+    return this.setState((prevState) => ({
       contacts: [...prevState.contacts, newUser],
 		})
-    );
-
+    )}
   
-
-  }
   
-  filterOnChange = ({ target: { name, value } }) => {
-    let newContacts = []
+  
+  
+    
+filterOnChange = (value) => {
+    /*let newContacts = []*/
     this.setState({
-      [name]: value,
+      filter: value,
     })
-    
-    
-      /*const newContacts = this.state.contacts.filter((contact) => contact.name !== value);
-      console.log(newContacts)
-      this.setState(() => ({
-      contacts: [ ...newContacts],
-    }))*/
-      
-      this.state.contacts.filter(contact => contact.name.toLowerCase().includes(value)).map(filteredContact => {
-        return newContacts.push(filteredContact)
-        
-        /*/const oneContact = < li > { filteredName.name }: { filteredName.number }</li>
-         console.log(oneContact)
-           <li>
-             
-           </li>*/
-        
-      })
-      console.log(newContacts)
-    
-    if (value)
-    {
-      this.setState(() => (
-      { contacts: [...newContacts],
-		})
-    );}
+      this.state.contacts.forEach((contact) => {
+        if (contact.name.includes(value)) {
+          console.log("filter")
+     }
+    })
+          
    
   }
+
  
      deleteContact  = ({ target: { id } }) => {
        
@@ -89,8 +71,15 @@ class App extends Component  {
         <Phonebook createUser={this.createUser} />
         <h2>Contacts</h2>
         <Filter
+          
           value={filter}
-          filterOnChange={this.filterOnChange} />
+          filterOnChange={this.filterOnChange}
+          
+          contactsList={this.state.contacts}
+          deleteContact={this.deleteContact}
+          name={this.state.contacts.name}
+          number ={this.state.contacts.number}
+        />
         < Contacts contacts={this.state.contacts}
           filter={this.state.filter}
           deleteContact={this.deleteContact}
