@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Phonebook.module.css';
-import ContactItem from "./ContactItem";
-const Filter = ({ value, contactsList, deleteContact, name, number,filterOnChange }) => {
+
+const Filter = ({ value, filterOnChange }) => {
    /* if(value !==``) {filterOnChange = (value) => {
         contactsList.map((Item) => {
             if (Item.name.toLowerCase().includes(value)) {
@@ -30,10 +30,10 @@ const Filter = ({ value, contactsList, deleteContact, name, number,filterOnChang
 }
 
     ;
-/*Filter.propTypes= {
+Filter.propTypes= {
     value: PropTypes.string.isRequired,
     filterOnChange: PropTypes.func.isRequired
   
-};*/
+};
 
 export default Filter;
