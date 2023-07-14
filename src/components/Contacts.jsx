@@ -17,7 +17,7 @@ const Contacts = ({ contacts, deleteContact, filter }) => {
             })}
         </ul>
     }
-    contacts.map((contactFilter) => {
+    contacts.forEach((contactFilter) => {
        
         if (contactFilter.name.toLowerCase().includes(filter)) {
             console.log(contactFilter)
@@ -30,7 +30,7 @@ const Contacts = ({ contacts, deleteContact, filter }) => {
                 />
             </ul>
             
-         }})
+         }}) 
         
             
         }
