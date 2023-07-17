@@ -39,7 +39,7 @@ class App extends Component  {
   
     
 filterOnChange = (value) => {
-    /*let newContacts = []*/
+    
     this.setState({
       filter: value,
     })
@@ -62,7 +62,7 @@ filterOnChange = (value) => {
     })
    
   }
-     
+     getFilteredContacts =(contacts)=>contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
   render() {
     const { filter } = this.state;
     return (
@@ -80,7 +80,7 @@ filterOnChange = (value) => {
           name={this.state.contacts.name}
           number ={this.state.contacts.number}
         />
-        < Contacts contacts={this.state.contacts}
+        < Contacts contacts={this.getFilteredContacts(this.state.contacts)}
           filter={this.state.filter}
           deleteContact={this.deleteContact}
           />

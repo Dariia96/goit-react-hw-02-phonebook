@@ -1,39 +1,23 @@
 import ContactItem from "./ContactItem";
 import PropTypes from 'prop-types';
 import css from './Phonebook.module.css'
-import { nanoid } from 'nanoid';
 
-const Contacts = ({ contacts, deleteContact, filter }) => {
-    if (!filter) {
-        return <ul className={css.contacts}>
+
+const Contacts = ({ contacts, deleteContact }) => {
+   
+    return (<ul className={css.contacts}>
     
-            {contacts.map((contact) => {
-                return <ContactItem
-                    key={contact.id}
-                    name={contact.name}
-                    number={contact.number}
-                    deleteContact={deleteContact}
-                />
-            })}
-        </ul>
-    }
-     contacts.filter((contact => contact.name.toLowerCase().includes(filter))).map(contactFilter => {
-     
-      /* if (contactFilter.name.toLowerCase().includes(filter)) {*/
-            console.log(contactFilter)
-            return <ul className={css.contacts}>
-                <ContactItem
-                    key={nanoid()}
-                    name={contactFilter.name}
-                    number={contactFilter.number}
-                    deleteContact={deleteContact}
-                />
-            </ul>
-            
-         /*}*/}) 
-        
-            
-        }
+        {contacts.map(contact => {
+            return <ContactItem
+                key={contact.id}
+                name={contact.name}
+                number={contact.number}
+                deleteContact={deleteContact}
+            />
+        })}
+    </ul>)
+    
+}
     
 
 ;
