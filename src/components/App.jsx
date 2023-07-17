@@ -27,7 +27,7 @@ class App extends Component  {
       alert(`${contact.name} is already in your contacts`)
     })
 
-    this.setState({contacts: this.state.contacts.filter(contact =>  contact.name !== newUser.name && contact.number !== newUser.number)})
+    this.setState({contacts: this.state.contacts.filter(contact =>  contact.name !== newUser.name || contact.number !== newUser.number)})
     
     return this.setState((prevState) => ({
       contacts: [...prevState.contacts, newUser],
