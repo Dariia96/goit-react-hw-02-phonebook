@@ -16,6 +16,17 @@ class App extends Component  {
   ],
   filter: '',
   }
+  componentDidMount() {
+    const localData = localStorage.getItem('contacts')
+    if (localData) 
+      this.setState({ contacts: JSON.parse(localData)})
+    
+}
+   componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) 
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    
+  }
   createUser = (data) => {
 		const newUser = {
 			id: nanoid(),
@@ -34,7 +45,7 @@ class App extends Component  {
 		})
     )}
   
-  
+ 
   
   
     
@@ -75,14 +86,10 @@ filterOnChange = (value) => {
           value={filter}
           filterOnChange={this.filterOnChange}
           
-          contactsList={this.state.contacts}
-          deleteContact={this.deleteContact}
-          name={this.state.contacts.name}
-          number ={this.state.contacts.number}
+          
         />
         < Contacts contacts={this.getFilteredContacts(this.state.contacts)}
-          filter={this.state.filter}
-          deleteContact={this.deleteContact}
+                deleteContact={this.deleteContact}
           />
     </>
   );}
